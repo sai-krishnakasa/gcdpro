@@ -1,0 +1,27 @@
+supposse given a point(1,1) form where a man is moving in such a way that he is moving like (x+y,y) and (x,y+x) ....show that he is passing through 
+the point (5,5) and try so other points whether the person is moving or not
+                       (1,1)
+                  (1,2)      (2,1)
+              (1,3)   (3,2)(3,1)   (2,3)
+          ...             .... ...          .....
+          
+          code BASED ON EUCLID algorithm to fing gcd:
+          EUCLID ALGO:
+                    GCD(X,Y)= IF X>Y GCD(X-Y,Y) AND X<Y IF GCD(X,Y-X)
+                    EX:
+                        GCD(12,24):GCD(12,24-12)
+                                   GCD(12,12)
+                                   IF X==Y :
+                                        X OR Y IS GCD
+def euclid(x,y):
+    while(x>0) and (y>0):
+        if (x>y):
+            return euclid(x-y,y)
+        elif x<y:
+            return euclid(x,y-x)
+        elif x>1 and y>1 and x==y:
+            return False
+        if(x==y) and (x>1)and (y>1):
+            return False
+        return True
+print(euclid(4,3))
